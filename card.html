@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scroll Stack Images</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .stack-container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stack-img {
+      position: absolute;
+      width: 300px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 1rem;
+      transition: opacity 0.4s ease;
+    }
+
+    .spacer {
+      height: 120vh;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- SCROLL SPACER -->
+  <div class="spacer"></div>
+
+  <!-- STICKY STACK SECTION -->
+  <section class="relative h-[800vh]">
+    <div class="stack-container">
+      <div class="relative w-[300px] h-[400px]">
+        <!-- <img src="capric.avif" class="stack-img z-[6]" style="opacity: 0" /> -->
+        <img src="eye.jpg" class="stack-img z-[5]" style="opacity: 0" />
+        <img src="capric.avif" class="stack-img z-[4]" style="opacity: 0" />
+        <img src="capric.avif" class="stack-img z-[3]" style="opacity: 0" />
+        <img src="capric.avif" class="stack-img z-[2]" style="opacity: 0" />
+        <img src="capric.avif" class="stack-img z-[1]" style="opacity: 0" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SCROLL SPACER -->
+  <div class="spacer"></div>
+
+  <script>
+
+    const imgs = document.querySelectorAll('.stack-img');
+    const total = imgs.length;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const triggerStart = document.querySelector('section').offsetTop;
+      const triggerEnd = triggerStart + (total * windowHeight);
+
+      imgs.forEach((img, index) => {
+        const start = triggerStart + index * windowHeight;
+        const end = start + windowHeight;
+
+        if (scrollTop >= start) {
+          img.style.opacity = 1;
+        } else {
+          img.style.opacity = 0;
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
