@@ -8,7 +8,7 @@
     .hero-text-container {
       margin: 0;
       font-family: sans-serif;
-      background: linear-gradient(270deg, #000000, #7873f5, #47cacc, #000000);
+      background: linear-gradient(300deg, #000000, #7873f5, #47cacc, #000000, #000000, #000000);
       background-size: 800% 800%;
       animation: gradientBG 15s ease infinite;
     }
@@ -24,7 +24,7 @@
     }
 
     @keyframes textColor {
-      0%   { color: hsl(180, 100%, 85%); }
+      0%   { color: #dbff00; }
       25%  { color: hsl(270, 100%, 85%); }
       50%  { color: hsl(0, 100%, 85%); }
       75%  { color: hsl(90, 100%, 85%); }
@@ -40,44 +40,108 @@
       transform: translateY(0);
     }
   </style>
+  <style>
+  .scroll-animate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #ebeb9c;
+    z-index: 0;
+    transition: width 1s ease-out;
+  }
+
+  .scroll-animate.animate::before {
+    width: 100%;
+  }
+</style>
+
+<style>
+  .scroll-animate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    z-index: 0;
+    transition: width 1s ease-out;
+  }
+
+  .scroll-animate.animate::before {
+    width: 100%;
+  }
+
+  .bg-animate-1::before { background-color: #e6e671; }
+  .bg-animate-2::before { background-color: #e9e948; }
+  .bg-animate-3::before { background-color: #e0e019; }
+</style>
+
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="text-white">
 
   <main class="bg-black">
     <!-- Navbar -->
-  <nav class="bg-black text-white px-4 py-4 md:flex md:justify-between">
-    <div class="flex justify-between items-center">
-      <div class="font-bold text-lg md:text-xl">Logo</div>
+    <nav class="bg-black text-white px-4 py-4 relative">
+      <div class="max-w-7xl mx-auto flex items-center justify-between relative">
+        <!-- Logo Left -->
+        <div class="font-bold text-lg md:text-xl">Logo</div>
 
-      <!-- Hamburger Button -->
-      <button id="nav-toggle" class="md:hidden block focus:outline-none">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
+        <!-- Center Menu -->
+        <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2  text-sm uppercase">
+          <a href="" class="px-1">About Us</a>
+          <a href="" class="px-1">Why Us</a>
+          <a href="" class="px-1">Student Roadmap</a>
+          <a href="" class="px-1">Courses</a>
+          <a href="" class="px-1">Packages</a>
+          <a href="" class="px-1">Contact Us</a>
+        </div>
 
-    <!-- Menu Links -->
-    <div id="nav-menu" class="hidden md:flex flex-col md:flex-row md:items-center md:justify-between mt-4 md:mt-0 space-y-4 md:space-y-0 md:space-x-6 text-sm md:text-lg uppercase">
-      <div class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 text-center md:text-left">
+        <!-- Login Button Right -->
+        <div class="hidden md:block bg-white text-center  text-black px-10 py-2 rounded-3xl">
+          Login
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="nav-toggle" class="md:hidden block text-xl">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="nav-menu" class="md:hidden hidden mt-4 flex flex-col space-y-4 text-center text-sm uppercase">
         <a href="">About Us</a>
         <a href="">Why Us</a>
         <a href="">Student Roadmap</a>
         <a href="">Courses</a>
         <a href="">Packages</a>
         <a href="">Contact Us</a>
+        <div class="bg-white text-black px-4 py-1 rounded-2xl w-fit mx-auto">Login</div>
       </div>
-      <div class="bg-white text-black px-4 py-1 rounded-2xl w-fit mx-auto md:mx-0">Login</div>
-    </div>
-  </nav>
+    </nav>
+
+
 
     <!-- Hero Section -->
+
+    <section class="w-[99vw] h-[99vh] flex flex-col justify-center items-center text-center px-4 hero-text-container">
+      <div class="w-[99vw] px-4 text-[6vw] font-medium">
+        <h1 class="hero-text font-bold leading-none text-[6vw] ">Between 2021 and</h1>
+        <h1 class="hero-text font-bold leading-none text-[6vw] ">2024, only 17% of</h1>
+        <h1 class="hero-text font-bold leading-none text-[6vw]">International Graduates</h1>
+        <h1 class="hero-text font-bold leading-none text-[6vw]">landed jobs in the UK</h1>
+        <h1 class="hero-text font-bold leading-none text-[6vw]">market.</h1>
+      </div>
+    </section>
+
     <section class="hero-text-container text-white px-4 sm:px-6 md:px-12 lg:px-20 pt-20 pb-2 text-center">
-      <h1 class="hero-text font-medium leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">Between 2021 and</h1>
-      <h1 class="hero-text font-medium leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">2024, only 17% of</h1>
-      <h1 class="hero-text font-medium leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">International Graduates</h1>
-      <h1 class="hero-text font-medium leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">landed jobs in the UK</h1>
-      <h1 class="hero-text font-medium leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">market.</h1>
+
 
       <p class="hero-text mt-12 text-xl sm:text-2xl md:text-3xl">We're actively working to crack the algorithm and beat the matrix.</p>
       <p class="hero-text mt-12 text-[36px] sm:text-[48px] md:text-[72px] lg:text-[100px] xl:text-[140px] leading-none">Take a look how</p>
@@ -88,20 +152,20 @@
     </section>
 
     <!-- Academy Section -->
-    <section class="bg-[yellow] text-black py-20 px-6 sm:px-12 md:px-20">
+    <section class="bg-[#dbff00] text-black py-20 px-6 sm:px-12 md:px-20">
 
-      <h2 class="text-center font-semibold leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">
+      <h2 class="text-center font-medium leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">
         We. Are. Tagmatix Academy.
       </h2>
 
       <img src="eye.jpg" class="mt-20 mx-auto"  alt="">
 
       <div class="w-[85%] mx-auto mt-20 grid md:grid-cols-2 grid-cols-1">
-        <div>
+        <div class="flex flex-col items-center justify-center md:pe-20 md:pb-5">
             <p class="text-4xl leading-none">We started as an IT staffing/recruiting company. Now, we are more.</p>
             <p class="text-lg mt-5 text-zinc-700">Time flies when you're doing well. Since 2017, we’ve been evolving. Tagmatix Academy is our boldest move yet—transforming how skilled talent enters the workforce.</p>
         </div>
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-1">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
             <div class="bg-black rounded-2xl text-white ps-5 py-5 flex flex-col justify-between">
                 <i class="fa-solid fa-people-group mt-3 text-2xl"></i>
                 <div>
@@ -135,36 +199,47 @@
     </section>
 
     <!-- another section -->
-     <section class="bg-black text-white py-20 px-2">
-        <h2 class="text-center text-[yellow] md:w-[80%] mx-auto  leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">We. Are. Tagmatix Academy.</h2>
+<section class="bg-black text-white py-40 px-2  mt-[200px]">
+        <h2 class="text-center text-[#dbff00] md:w-[80%] mx-auto  leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">Changing Lives, One Career at a Time</h2>
         <p class="mt-5 text-center text-2xl md:w-[50%] mx-auto ">We've helped international graduates overcome barriers, secure jobs, and break into the UK job market. Here’s what we’ve achieved so far—because your success is our success.</p>
         
-        <div class="mt-20 ">
-            <div class="flex flex-col md:flex-row justify-between items-center text-black bg-[#ebeb9c] py-6 px-4  gap-4">
-                <p class="font-bold text-4xl sm:text-5xl md:text-6xl">60+</p>
-                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right">Students Upskilled</p>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-black bg-[#e6e671] py-6 px-4  gap-4">
-                <p class="font-bold text-4xl sm:text-5xl md:text-6xl">8000+</p>
-                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right">Enhanced Applications Submittesd</p>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-black bg-[#e9e948] py-6 px-4  gap-4">
-                <p class="font-bold text-4xl sm:text-5xl md:text-6xl">78%</p>
-                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right">Increase in interview Shortlist Rate</p>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-black bg-[#e0e019] py-6 px-4  gap-4">
-                <p class="font-bold text-4xl sm:text-5xl md:text-6xl">1/3rd</p>
-                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right">Secured Jobs After The Course</p>
-            </div>
+        <div class="mt-20 mb-40">
+              <div class="scroll-animate flex flex-col md:flex-row justify-between items-center text-black relative overflow-hidden py-6 px-4 gap-4">
+                <p class="font-bold text-4xl sm:text-5xl md:text-6xl z-10">60+</p>
+                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right z-10">Students Upskilled</p>
         </div>
-    </section>
+
+<!-- Box 1 -->
+<div class="scroll-animate bg-animate-1 flex flex-col md:flex-row justify-between items-center text-black relative overflow-hidden py-6 px-4 gap-4">
+  <p class="font-bold text-4xl sm:text-5xl md:text-6xl z-10">8000+</p>
+  <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right z-10">Enhanced Applications Submitted</p>
+</div>
+
+<!-- Box 2 -->
+<div class="scroll-animate bg-animate-2 flex flex-col md:flex-row justify-between items-center text-black relative overflow-hidden py-6 px-4 gap-4">
+  <p class="font-bold text-4xl sm:text-5xl md:text-6xl z-10">78%</p>
+  <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right z-10">Increase in Interview Shortlist Rate</p>
+</div>
+
+<!-- Box 3 -->
+<div class="scroll-animate bg-animate-3 flex flex-col md:flex-row justify-between items-center text-black relative overflow-hidden py-6 px-4 gap-4">
+  <p class="font-bold text-4xl sm:text-5xl md:text-6xl z-10">1/3rd</p>
+  <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right z-10">Secured Jobs After The Course</p>
+</div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+</section>
 
 
 <!-- cards -->
 <section class="bg-black py-20 text-center relative">
   <!-- Sticky Heading -->
   <div class="sticky top-0  bg-black py-5">
-    <h2 class=" sm:text-4xl font-bold relative w-[99vw] h-[100vh]" style="z-index: -1000 !important;font-size: 80px;">But why us? Why are we unique?</h2>
+    <h2 class=" sm:text-4xl font-bold relative pt-[40vh] md:w-[70vw] mx-auto h-[100vh] text-3xl md:text-8xl" style="z-index: -1000 !important;">But why us? Why are we unique?</h2>
   </div>
 
   <!-- Cards Grid -->
@@ -172,60 +247,60 @@
   <!-- Card 1: start -->
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-16 gap-x-6 mt-20 relative px-5" >
     <div class="card float-up sm:col-start-1 flex justify-center">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
+      <div class="bg-white/50 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
         <h2 class="text-2xl font-bold">Well, to start with...</h2>
-        <p class="p-3 bg- w-[10px] bg-[yellow] rounded-full mt-20"></p>
-        <p class="text-white/90 mt-2 text-3xl">We're a <span class="text-[yellow] italic font-bold">Recruitment</span> company.</p>
+        <p class="p-3 bg- w-[10px] bg-[#dbff00] rounded-full mt-20"></p>
+        <p class="text-white/90 mt-2 text-3xl">We're a <span class="text-[#dbff00] italic font-bold">Recruitment</span> company.</p>
       </div>
     </div>
   </div>
   <!-- Card 2: start -->
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-16 gap-x-6 mt-20 relative px-5" >
     <div class="card float-up sm:col-start-2 flex justify-center">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
+      <div class="bg-white/50 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
         <h2 class="text-2xl font-bold">That identified a gap....</h2>
-        <p class="p-3 bg- w-[10px] bg-[yellow] rounded-full mt-20"></p>
-        <p class="text-white/90 mt-2 text-3xl">Too many  <span class="text-[yellow] italic font-bold">skilled grads</span> were struggling to land jobs in the UK.</p>
+        <p class="p-3 bg- w-[10px] bg-[#dbff00] rounded-full mt-20"></p>
+        <p class="text-white/90 mt-2 text-3xl">Too many  <span class="text-[#dbff00] italic font-bold">skilled grads</span> were struggling to land jobs in the UK.</p>
       </div>
     </div>
   </div>
   <!-- Card 3: start -->
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-16 gap-x-6 mt-20 relative px-5" >
     <div class="card float-up sm:col-start-3 flex justify-center">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
+      <div class="bg-white/50 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
         <h2 class="text-2xl font-bold">So, we did something about it!</h2>
-        <p class="p-3 bg- w-[10px] bg-[yellow] rounded-full mt-20"></p>
-        <p class="text-white/90 mt-2 text-3xl">We built an  <span class="text-[yellow] italic font-bold">ecosystem </span>that doesn’t just train—it does more. So much more.</p>
+        <p class="p-3 bg- w-[10px] bg-[#dbff00] rounded-full mt-20"></p>
+        <p class="text-white/90 mt-2 text-3xl">We built an  <span class="text-[#dbff00] italic font-bold">ecosystem </span>that doesn’t just train—it does more. So much more.</p>
       </div>
     </div>
   </div>
   <!-- Card 4: start -->
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-16 gap-x-6 mt-20 relative px-5" >
     <div class="card float-up sm:col-start-2 flex justify-center">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
+      <div class="bg-white/50 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
         <h2 class="text-2xl font-bold">It gets interesting here…</h2>
-        <p class="p-3 bg- w-[10px] bg-[yellow] rounded-full mt-20"></p>
-        <p class="text-white/90 mt-2 text-3xl">We have a client pool of over <span class="text-[yellow] italic font-bold">100 companies</span>, and we'll try to create a direct pathway for you.</p>
+        <p class="p-3 bg- w-[10px] bg-[#dbff00] rounded-full mt-20"></p>
+        <p class="text-white/90 mt-2 text-3xl">We have a client pool of over <span class="text-[#dbff00] italic font-bold">100 companies</span>, and we'll try to create a direct pathway for you.</p>
       </div>
     </div>
   </div>
   <!-- Card 5: start -->
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-16 gap-x-6 mt-20 relative px-5" >
     <div class="card float-up sm:col-start-1 flex justify-center">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
+      <div class="bg-white/50 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
         <h2 class="text-2xl font-bold">Provided you're a top performer...</h2>
-        <p class="p-3 bg- w-[10px] bg-[yellow] rounded-full mt-20"></p>
-        <p class="text-white/90 mt-2 text-3xl">Slackers—Stay away! We only cater to the <span class="text-[yellow] italic font-bold">real ones.</span></p>
+        <p class="p-3 bg- w-[10px] bg-[#dbff00] rounded-full mt-20"></p>
+        <p class="text-white/90 mt-2 text-3xl">Slackers—Stay away! We only cater to the <span class="text-[#dbff00] italic font-bold">real ones.</span></p>
       </div>
     </div>
   </div>
   <!-- Card 6: start -->
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-16 gap-x-6 mt-20 relative px-5" >
     <div class="card float-up sm:col-start-2 flex justify-center">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
+      <div class="bg-white/50 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
         <h2 class="text-2xl font-bold">And that's how we're unique.</h2>
-        <p class="p-3 bg- w-[10px] bg-[yellow] rounded-full mt-20"></p>
-        <p class="text-white/90 mt-2 text-3xl">More than your averagee-learning course, innit?<span class="text-[yellow] italic font-bold"></span></p>
+        <p class="p-3 bg- w-[10px] bg-[#dbff00] rounded-full mt-20"></p>
+        <p class="text-white/90 mt-2 text-3xl">More than your averagee-learning course, innit?<span class="text-[#dbff00] italic font-bold"></span></p>
       </div>
     </div>
   </div>
@@ -235,46 +310,176 @@
 </section>
 
 <!-- next -->
+<h2 class=" font-bold  pt-[40vh] w-[70vw] mx-auto text-center h-[100vh] text-3xl md:text-8xl" >Alright, enough about us. Let's talk about your roadmap now.</h2>
 
-<section>
-    <p class="w-[70%] mx-auto text-center text-8xl pt-10 pb-20">Alright, enough about us. Let's talk about your roadmap now.</p>
-</section>
 
 <!-- animation -->
- <section class="grid grid-cols-2">
+ <section class="md:grid md:grid-cols-2 ">
     <div>
         <h2>h</h2>
     </div>
-    <div class="pe-5 text-justify">
-        <div class="mt-5">
-          <h2 class="text-[yellow] text-4xl">Step 1 - Explore</h2>
-          <p class="text-2xl mt-2">We offer multiple courses in three flexible packages. Take your time, explore, and choose what suits you best. If it feels overwhelming, don’t worry—we’re here to guide you.</p>
-          <p class="mt-5 text-2xl">Oh, and if you’re feeling extra ambitious, yes—you can enroll in more than one course. No one's stopping you!</p>
+    <div class="md:pe-5 px-4 text-justify">
+
+        <div class="mt-5 md:w-[70%] text-justify">
+          <i class="bi bi-caret-up-fill text-2xl text-[#dbff00]"></i>
+          <h2 class="text-[#dbff00] text-5xl">Step 1 - Explore</h2>
+          <p class="text-xl mt-2">We offer multiple courses in three flexible packages. Take your time, explore, and choose what suits you best. If it feels overwhelming, don’t worry—we’re here to guide you.</p>
+          <p class="mt-5 text-xl">Oh, and if you’re feeling extra ambitious, yes—you can enroll in more than one course. No one's stopping you!</p>
         </div>
-        <div class="mt-20">
-          <h2 class="text-[yellow] text-4xl">Step 2 - Finalize & Pay</h2>
-          <p class="text-2xl mt-2">By now, you’ve likely found the course that fits you best. Each one comes in three tailored packages, each with its own perks—choose what works for you and let’s get started.</p>
+
+        <div class="mt-10 md:w-[70%] text-justify  md:my-[400px]">
+          <i class="bi bi-circle-fill text-2xl text-[#dbff00]"></i>
+          <h2 class="text-[#dbff00] text-5xl">Step 2 - Finalize & Pay</h2>
+          <p class="text-xl mt-2">By now, you’ve likely found the course that fits you best. Each one comes in three tailored packages, each with its own perks—choose what works for you and let’s get started.</p>
         </div>
-        <div class="mt-20">
-          <h2 class="text-[yellow] text-4xl">Step 3 - Interactive Live Classes</h2>
-          <p class="text-2xl mt-2">No boring pre-recorded videos here. If you’re committing your time, we’re committing ours. Our live classes are engaging, interactive, and—dare we say—fun? Just like the robot on the left. (Go ahead, give it a try with your mouse)</p>
+        <div class="mt-10 md:w-[70%] text-justify  md:my-[400px]">
+          <i class="bi bi-circle-fill text-2xl text-[#dbff00]"></i>
+          <h2 class="text-[#dbff00] text-4xl">Step 3 - Interactive Live Classes</h2>
+          <p class="text-xl mt-2">No boring pre-recorded videos here. If you’re committing your time, we’re committing ours. Our live classes are engaging, interactive, and—dare we say—fun? Just like the robot on the left. (Go ahead, give it a try with your mouse)</p>
         </div>
-        <div class="mt-20">
-          <h2 class="text-[yellow] text-4xl">Step 4 - Assessments</h2>
-          <p class="text-2xl mt-2">Throughout your course, you’ll take periodic assessments to track your progress. These aren’t just tests—they help us understand where you shine and where we can guide you better.</p>
+        <div class="mt-10 md:w-[70%] text-justify  md:my-[400px]">
+          <i class="bi bi-circle-fill text-2xl text-[#dbff00]"></i>
+          <h2 class="text-[#dbff00] text-4xl">Step 4 - Assessments</h2>
+          <p class="text-xl mt-2">Throughout your course, you’ll take periodic assessments to track your progress. These aren’t just tests—they help us understand where you shine and where we can guide you better.</p>
         </div>
-        <div class="mt-20">
-          <h2 class="text-[yellow] text-4xl">Step 5 - Analyze & Aid</h2>
-          <p class="text-2xl mt-2">As you near the end of your course, we'll analyze multiple factors—including your performance, soft skills, and strengths—to craft a TagProfile for you.​</p>
-          <p class="text-2xl mt-5">From there, you'll receive 1-on-1 coaching to refine your skills, boost your confidence, and ensure you're fully prepared to step into the job market.​</p>
+        <div class="mt-10 md:w-[70%] text-justify  md:my-[400px]">
+          <i class="bi bi-circle-fill text-2xl text-[#dbff00]"></i>
+          <h2 class="text-[#dbff00] text-4xl">Step 5 - Analyze & Aid</h2>
+          <p class="text-xl mt-2">As you near the end of your course, we'll analyze multiple factors—including your performance, soft skills, and strengths—to craft a TagProfile for you.​</p>
+          <p class="text-xl mt-5">From there, you'll receive 1-on-1 coaching to refine your skills, boost your confidence, and ensure you're fully prepared to step into the job market.​</p>
         </div>
-        <div class="mt-20">
-          <h2 class="text-[yellow] text-4xl">Step 6 - Land The Job?</h2>
-          <p class="text-2xl mt-2">We’ll polish your CV and make sure it stands out—so you walk in prepared, confident, and ready to impress.​</p>
-          <p class="text-2xl mt-5">Our team will push your applications to our hiring partners, ensuring your profile reaches the right desks. Your journey doesn’t end with the course. We’re with you until you get hired.​</p>
+        <div class="mt-10 md:w-[70%] text-justify  md:my-[400px]">
+          <i class="bi bi-circle-fill text-2xl text-[#dbff00]"></i>
+          <h2 class="text-[#dbff00] text-4xl">Step 6 - Land The Job?</h2>
+          <p class="text-xl mt-2">We’ll polish your CV and make sure it stands out—so you walk in prepared, confident, and ready to impress.​</p>
+          <p class="text-xl mt-5">Our team will push your applications to our hiring partners, ensuring your profile reaches the right desks. Your journey doesn’t end with the course. We’re with you until you get hired.​</p>
         </div>
     </div>
  </section>
+
+<!-- video -->
+
+<!-- <section class="relative h-[100vh] w-[90vw] overflow-hidden video-section">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="your-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="relative z-10 flex items-center justify-center h-full w-full">
+    <h1 class="text-white text-4xl md:text-6xl font-bold">Welcome to Our World</h1>
+  </div>
+</section> -->
+
+
+<section class="relative h-[99vh] w-[99vw] overflow-hidden video-section">
+  <!-- YouTube Video Iframe -->
+  <iframe
+    class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+    src="https://www.youtube.com/embed/IxRVa1DbSAg?autoplay=1&mute=1&controls=0&loop=1&playlist=IxRVa1DbSAg&modestbranding=1&showinfo=0"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen
+  ></iframe>
+
+  <!-- Black Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/70 z-10"></div>
+
+  <!-- Centered Text -->
+  <div class="relative z-20 flex items-center justify-between  h-full w-full px-10">
+    <h1 class="text-white text-4xl md:text-6xl font-bold text-center px-4 ">Our Courses</h1>
+    <p class="md:mt-[250px] text-3xl text-start md:pe-[100px]">Discover our carefully <br> curated, handpicked <br> courses.</p>
+  </div>
+</section>
+
+
+
+<!-- cards -->
+  <section class="flex flex-col justify-center items-center relative px-5 pb-20">
+        <img src="Salesforce Main Card.avif" class="stack-img z-[1] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="Microsoft CRM Main Card.avif" class="stack-img z-[2] sticky top-10  w-[90%] md:w-[20%]" />
+        <img src="Cloud Main Card.avif" class="stack-img z-[3] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="AI ML Main Card.avif" class="stack-img z-[4] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="leo.avif" class="stack-img z-[5] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="virgo.avif" class="stack-img z-[6] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="libra.avif" class="stack-img z-[7] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="scorpio.avif" class="stack-img z-[8] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="sagittarius.avif" class="stack-img z-[9] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="capric.avif" class="stack-img z-[10] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="aqueri.avif" class="stack-img z-[11] sticky top-10 w-[90%] md:w-[20%]" />
+        <img src="pieces.avif" class="stack-img z-[12] sticky top-10 w-[90%] md:w-[20%]" />
+  </section>
+
+
+  <!-- pricing -->
+
+
+<section class="bg-[#dbff00] py-20 px-4">
+  <h2 class="text-center text-4xl md:text-5xl font-bold mb-12 text-black uppercase">Pricing Plans</h2>
+  
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Basic Plan -->
+    <div class="bg-[#dbff00] text-black rounded-xl overflow-hidden shadow-xl flex flex-col justify-between transform  transition border-2 border-[black]">
+      <div class="p-6 text-center">
+        <h3 class="text-3xl font-bold mb-2">Basic</h3>
+        <p class="text-2xl font-semibold">$1.99</p>
+      </div>
+      <div class="bg-black text-white text-center py-6 text-lg ">
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 1</p>
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 2</p>
+        <p class="border-b-[0.5px] border-[white] py-4">-</p>
+        <p class="border-b-[0.5px] border-[white] py-4">-</p>
+    </div>
+      <div class="bg-black p-6 text-center">
+        <button class="bg-[#dbff00] px-6 py-2 rounded-xl font-bold hover:opacity-90">Sign Up For Free</button>
+      </div>
+    </div>
+
+    <!-- Advanced Plan (center, larger) -->
+    <div class="bg-[#dbff00] text-black rounded-xl overflow-hidden shadow-2xl transform scale-105 md:scale-110 z-10 border-2 border-black flex flex-col justify-between">
+      <div class="p-8 text-center">
+        <h3 class="text-4xl font-extrabold mb-2">Advanced</h3>
+        <p class="text-3xl font-bold">$7.99</p>
+      </div>
+      <div class="bg-black text-white text-center py-6 text-lg ">
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 1</p>
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 2</p>
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 3</p>
+        <p class="border-b-[0.5px] border-[white] ">-</p>
+    </div>
+      <div class="bg-black p-6 text-center">
+        <button class="bg-[#dbff00] px-8 py-3 rounded-xl font-bold hover:opacity-90">Sign Up For Free</button>
+      </div>
+    </div>
+
+    <!-- Ultimate Plan -->
+    <div class="bg-[#dbff00] text-black rounded-xl overflow-hidden shadow-xl flex flex-col justify-between transform  transition border-2 border-[black]">
+      <div class="p-6 text-center">
+        <h3 class="text-3xl font-bold mb-2">Ultimate</h3>
+        <p class="text-2xl font-semibold">$9.99</p>
+      </div>
+      <div class="bg-black text-white text-center py-6 text-lg ">
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 1</p>
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 2</p>
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 3</p>
+        <p class="border-b-[0.5px] border-[white] py-4">Feature 4</p>
+    </div>
+      <div class="bg-black p-6 text-center">
+        <button class="bg-[#dbff00] px-6 py-2 rounded-xl font-bold hover:opacity-90">Sign Up For Free</button>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="text-center py-20 text-xl text-black">Plan Comparison - Create your own for free!</p>
+</section>
+
+
+
+
+
+
+
 
 
   </main>
@@ -311,6 +516,41 @@
     cards.forEach((card) => observer.observe(card));
 
   </script>
+
+
+<script>
+  const observers = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    },
+    {
+      threshold: 0.8, // when 50% of the div is visible
+    }
+  );
+
+  document.querySelectorAll('.scroll-animate').forEach(el => observers.observe(el));
+</script>
+<script>
+  const observerz = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    }
+  );
+
+  document.querySelectorAll('.scroll-animate').forEach(el => observerz.observe(el));
+</script>
+
 
 </body>
 </html>
