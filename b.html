@@ -2,291 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Responsive Hero with Animated Cards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizontal Scroll</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
   <style>
-    /* Background animation for hero */
-    .hero-text-container {
-      background: linear-gradient(270deg, #000000, #7873f5, #47cacc, #000000);
-      background-size: 800% 800%;
-      animation: gradientBG 15s ease infinite;
+    html, body {
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
     }
-    @keyframes gradientBG {
-      0% { background-position: 0% 90%; }
-      50% { background-position: 90% 0%; }
-      100% { background-position: 0% 90%; }
+    .horizontal-scroll {
+      scroll-snap-type: x mandatory;
     }
-
-    .hero-text {
-      animation: textColor 40s ease infinite;
-    }
-    @keyframes textColor {
-      0%   { color: hsl(180, 100%, 85%); }
-      25%  { color: hsl(270, 100%, 85%); }
-      50%  { color: hsl(0, 100%, 85%); }
-      75%  { color: hsl(90, 100%, 85%); }
-      100% { color: hsl(180, 100%, 85%); }
-    }
-
-    /* Float-up Animation */
-    .float-up {
-      opacity: 0;
-      transform: translateY(100px);
-      transition: all 0.8s ease-out;
-    }
-    .float-up.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .section {
+      scroll-snap-align: start;
+      flex-shrink: 0;
     }
   </style>
 </head>
-<body class="text-white bg-black">
+<body class="bg-black text-white">
 
-<main>
-
-  <!-- Navbar -->
-  <nav class="bg-black text-white px-4 py-4 md:flex md:justify-between">
-    <div class="flex justify-between items-center">
-      <div class="font-bold text-lg md:text-xl">Logo</div>
-      <button id="nav-toggle" class="md:hidden block">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-    <div id="nav-menu" class="hidden md:flex flex-col md:flex-row md:items-center md:space-x-6 mt-4 md:mt-0 text-sm md:text-lg uppercase">
-      <a href="#">About Us</a>
-      <a href="#">Why Us</a>
-      <a href="#">Roadmap</a>
-      <a href="#">Courses</a>
-      <a href="#">Packages</a>
-      <a href="#">Contact</a>
-      <div class="bg-white text-black px-4 py-1 rounded-2xl">Login</div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-text-container px-6 pt-20 pb-10 text-center">
-    <h1 class="hero-text text-4xl sm:text-6xl lg:text-8xl font-medium">Between 2021 and</h1>
-    <h1 class="hero-text text-4xl sm:text-6xl lg:text-8xl font-medium">2024, only 17%</h1>
-    <h1 class="hero-text text-4xl sm:text-6xl lg:text-8xl font-medium">International Graduates</h1>
-    <h1 class="hero-text text-4xl sm:text-6xl lg:text-8xl font-medium">landed jobs in the UK</h1>
-    <h1 class="hero-text text-4xl sm:text-6xl lg:text-8xl font-medium">market.</h1>
-    <p class="hero-text mt-10 text-xl sm:text-2xl">We're actively working to crack the algorithm and beat the matrix.</p>
-    <p class="hero-text mt-8 text-4xl sm:text-6xl">Take a look how</p>
-    <div class="flex justify-center mt-10">
-      <div class="h-[250px] w-[2px] bg-white"></div>
-    </div>
-  </section>
-
-    <!-- Academy Section -->
-    <section class="bg-[yellow] text-black py-20 px-6 sm:px-12 md:px-20">
-
-      <h2 class="text-center font-semibold leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">
-        We. Are. Tagmatix Academy.
-      </h2>
-
-      <img src="eye.jpg" class="mt-20 mx-auto"  alt="">
-
-      <div class="w-[85%] mx-auto mt-20 grid md:grid-cols-2 grid-cols-1">
-        <div>
-            <p class="text-4xl leading-none">We started as an IT staffing/recruiting company. Now, we are more.</p>
-            <p class="text-lg mt-5 text-zinc-700">Time flies when you're doing well. Since 2017, we’ve been evolving. Tagmatix Academy is our boldest move yet—transforming how skilled talent enters the workforce.</p>
-        </div>
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-1">
-            <div class="bg-black rounded-2xl text-white ps-5 py-5 flex flex-col justify-between">
-                <i class="fa-solid fa-people-group mt-3 text-2xl"></i>
-                <div>
-                    <p class="text-5xl mt-5">200+</p>
-                    <p class="uppercase">employees</p>
-                </div>
-            </div>
-            <div class="bg-black rounded-2xl text-white ps-5 py-5 flex flex-col justify-between">
-                <i class="fa-solid fa-user-plus mt-3 text-2xl"></i>
-                <div>
-                    <p class="text-5xl mt-5">100+</p>
-                    <p class="uppercase">clients</p>
-                </div>
-            </div>
-            <div class="bg-black rounded-2xl text-white ps-5 py-5 flex flex-col justify-between">
-                <i class="fa-solid fa-lightbulb mt-3 text-2xl"></i>
-                <div>
-                    <p class="text-5xl mt-5">25+</p>
-                    <p class="uppercase">certifications</p>
-                </div>
-            </div>
-            <div class="bg-black rounded-2xl text-white ps-5 py-5 flex flex-col justify-between">
-                <i class="fa-solid fa-clipboard-user mt-3 text-2xl"></i>
-                <div>
-                    <p class="text-5xl mt-5">1930+</p>
-                    <p class="uppercase">staffed</p>
-                </div>
-            </div>
-        </div>
-      </div>
+  <main class="flex horizontal-scroll h-screen w-[400vw] overflow-x-auto snap-x">
+    
+    <!-- Section 1 -->
+    <section class="section w-screen h-screen flex justify-center items-center bg-[#ff0055] text-white text-center text-5xl font-bold">
+      Welcome to Page 1
     </section>
 
-
-    <!-- another section -->
-     <section class="bg-black text-white py-20 px-2">
-        <h2 class="text-center text-[yellow] md:w-[80%] mx-auto  leading-none text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[100px]">We. Are. Tagmatix Academy.</h2>
-        <p class="mt-5 text-center text-2xl md:w-[50%] mx-auto ">We've helped international graduates overcome barriers, secure jobs, and break into the UK job market. Here’s what we’ve achieved so far—because your success is our success.</p>
-        
-        <div class="mt-20 ">
-            <div class="flex flex-col md:flex-row justify-between items-center text-black bg-[#ebeb9c] py-6 px-4  gap-4">
-                <p class="font-bold text-4xl sm:text-5xl md:text-6xl">60+</p>
-                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right">Students Upskilled</p>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-black bg-[#e6e671] py-6 px-4  gap-4">
-                <p class="font-bold text-4xl sm:text-5xl md:text-6xl">8000+</p>
-                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right">Enhanced Applications Submittesd</p>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-black bg-[#e9e948] py-6 px-4  gap-4">
-                <p class="font-bold text-4xl sm:text-5xl md:text-6xl">78%</p>
-                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right">Increase in interview Shortlist Rate</p>
-            </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-black bg-[#e0e019] py-6 px-4  gap-4">
-                <p class="font-bold text-4xl sm:text-5xl md:text-6xl">1/3rd</p>
-                <p class="text-2xl sm:text-3xl md:text-5xl text-center md:text-right">Secured Jobs After The Course</p>
-            </div>
-        </div>
+    <!-- Section 2 -->
+    <section class="section w-screen h-screen flex justify-center items-center bg-[#00c3ff] text-white text-center text-5xl font-bold">
+      Explore Page 2
     </section>
-<!-- Cards Section -->
-<section class="bg-black py-20 text-center relative">
-  <!-- Sticky Heading -->
-  <div class="sticky top-0  bg-black py-5">
-    <h2 class="text-3xl sm:text-4xl font-bold relative" style="z-index: -1000 !important;">But why us? Why are we unique?</h2>
-  </div>
 
-  <!-- Cards Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-16 gap-x-6 mt-20 relative px-5" >
-    <!-- Card 1: start -->
-    <div class="card float-up sm:col-start-1 flex justify-start">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
-        <h2 class="text-2xl font-bold">Start Aligned</h2>
-        <p class="text-white/90 mt-2">We're a Recruitment company.</p>
-      </div>
-    </div>
+    <!-- Section 3 -->
+    <section class="section w-screen h-screen flex justify-center items-center bg-[#23d160] text-white text-center text-5xl font-bold">
+      Discover Page 3
+    </section>
 
-    <!-- Card 2: center -->
-    <div class="card float-up sm:col-start-2 flex justify-center">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
-        <h2 class="text-2xl font-bold">Center Aligned</h2>
-        <p class="text-white/90 mt-2">We crack the job matrix.</p>
-      </div>
-    </div>
-
-    <!-- Card 3: end -->
-    <div class="card float-up sm:col-start-3 flex justify-end">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
-        <h2 class="text-2xl font-bold">End Aligned</h2>
-        <p class="text-white/90 mt-2">UK market expertise.</p>
-      </div>
-    </div>
-
-    <!-- Card 4: start -->
-    <div class="card float-up sm:col-start-1 flex justify-start">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
-        <h2 class="text-2xl font-bold">Start Again</h2>
-        <p class="text-white/90 mt-2">AI-powered tools.</p>
-      </div>
-    </div>
-
-    <!-- Card 5: center -->
-    <div class="card float-up sm:col-start-2 flex justify-center">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
-        <h2 class="text-2xl font-bold">Center Again</h2>
-        <p class="text-white/90 mt-2">Resume enhancement.</p>
-      </div>
-    </div>
-
-    <!-- Card 6: end -->
-    <div class="card float-up sm:col-start-3 flex justify-end">
-      <div class="bg-white/20 rounded-2xl p-6 w-full max-w-sm shadow-xl text-left">
-        <h2 class="text-2xl font-bold">End Again</h2>
-        <p class="text-white/90 mt-2">Interview prep.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- img card -->
-<section class="sticky top-0 h-screen flex items-center justify-center bg-black overflow-hidden">
-  <div class="relative w-[300px] h-[400px]">
-    <img src="capric.avif" alt="" class="stack-img opacity-0 absolute top-0 left-0 w-full h-full object-cover rounded-xl shadow-lg z-[1]" />
-    <img src="capric.avif" alt="" class="stack-img opacity-0 absolute top-2 left-2 w-full h-full object-cover rounded-xl shadow-lg z-[2]" />
-    <img src="capric.avif" alt="" class="stack-img opacity-0 absolute top-4 left-4 w-full h-full object-cover rounded-xl shadow-lg z-[3]" />
-    <img src="capric.avif" alt="" class="stack-img opacity-0 absolute top-6 left-6 w-full h-full object-cover rounded-xl shadow-lg z-[4]" />
-    <img src="capric.avif" alt="" class="stack-img opacity-0 absolute top-8 left-8 w-full h-full object-cover rounded-xl shadow-lg z-[5]" />
-    <img src="capric.avif" alt="" class="stack-img opacity-0 absolute top-10 left-10 w-full h-full object-cover rounded-xl shadow-lg z-[6]" />
-  </div>
-</section>
-
-<!-- Spacer to allow scrolling -->
-<div class="h-[300vh] bg-white"></div>
-
-<script>
-  const images = document.querySelectorAll('.stack-img');
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-
-  let currentIndex = 0;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && currentIndex < images.length) {
-        images[currentIndex].classList.add('opacity-100');
-        images[currentIndex].classList.remove('opacity-0');
-        currentIndex++;
-      }
-    });
-  }, options);
-
-  // Attach an invisible trigger div between each image to reveal the next one
-  for (let i = 0; i < images.length; i++) {
-    const trigger = document.createElement('div');
-    trigger.style.height = '80vh';
-    document.body.appendChild(trigger);
-    observer.observe(trigger);
-  }
-</script>
-
-
-
-  
-
-</main>
-
-<!-- Scripts -->
-<script>
-  // Toggle nav menu
-  document.getElementById('nav-toggle').addEventListener('click', () => {
-    document.getElementById('nav-menu').classList.toggle('hidden');
-  });
-
-  // Animate cards on scroll
-  document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, index * 150);
-        }
-      });
-    }, {
-      threshold: 0.1,
-    });
-
-    cards.forEach((card) => observer.observe(card));
-  });
-</script>
+    <!-- Section 4 -->
+    <section class="section w-screen h-screen flex justify-center items-center bg-[#f7df1e] text-black text-center text-5xl font-bold">
+      Final Page 4
+    </section>
+    
+  </main>
 
 </body>
 </html>
