@@ -958,6 +958,12 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .text-\[6\.2vw\] {
+    font-size: 6.2vw;
+  }
+  .text-\[6\.3vw\] {
+    font-size: 6.3vw;
+  }
   .text-\[6vw\] {
     font-size: 6vw;
   }
