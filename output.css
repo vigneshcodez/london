@@ -700,14 +700,23 @@
   .bg-\[\#23d160\] {
     background-color: #23d160;
   }
+  .bg-\[\#121212\] {
+    background-color: #121212;
+  }
   .bg-\[\#EF4444\] {
     background-color: #EF4444;
   }
   .bg-\[\#F8F8FC\] {
     background-color: #F8F8FC;
   }
+  .bg-\[\#\] {
+    background-color: #;
+  }
   .bg-\[\#dbff00\] {
     background-color: #dbff00;
+  }
+  .bg-\[\#e6e6e6\] {
+    background-color: #e6e6e6;
   }
   .bg-\[\#f7df1e\] {
     background-color: #f7df1e;
@@ -717,6 +726,33 @@
   }
   .bg-\[rgba\(\)\] {
     background-color: rgba();
+  }
+  .bg-\[rgba\(0\)\] {
+    background-color: rgba(0);
+  }
+  .bg-\[rgba\(0\,0\,0\,0\)\] {
+    background-color: rgba(0,0,0,0);
+  }
+  .bg-\[rgba\(0\,0\,0\,0\.\)\] {
+    background-color: rgba(0,0,0,0.);
+  }
+  .bg-\[rgba\(0\,0\,0\,0\.1\)\] {
+    background-color: rgba(0,0,0,0.1);
+  }
+  .bg-\[rgba\(0\,0\,0\,0\.2\)\] {
+    background-color: rgba(0,0,0,0.2);
+  }
+  .bg-\[rgba\(0\,0\,0\,0\.3\)\] {
+    background-color: rgba(0,0,0,0.3);
+  }
+  .bg-\[rgba\(0\,0\,0\,0\.8\)\] {
+    background-color: rgba(0,0,0,0.8);
+  }
+  .bg-\[rgba\(0\,0\,0\,0\.9\)\] {
+    background-color: rgba(0,0,0,0.9);
+  }
+  .bg-\[rgba\(0\,0\,0\,0\.85\)\] {
+    background-color: rgba(0,0,0,0.85);
   }
   .bg-\[rgba\(255\,255\,255\,0\.3\)\] {
     background-color: rgba(255,255,255,0.3);
